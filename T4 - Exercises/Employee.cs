@@ -4,8 +4,8 @@
     {
         protected static int _employeesGeneralCounter = 0;
         private static int _employeesCounter = 0;
-        public int Counter { get { return _employeesGeneralCounter; } }
-        public int CounterEmployees { get { return _employeesCounter; } }
+        public static int Counter { get { return _employeesGeneralCounter; } }
+        public static int CounterEmployees { get { return _employeesCounter; } }
         public int Age { get; set; }
         public string Code { get; set; }
         public string FirstName { get; set; }
@@ -31,7 +31,7 @@
             AnnualSalary = MonthSalary * 12;
             Payments = payments;
             FullName = firstName + " " + lastName;
-            ReverseName = (FullName.Reverse()).ToString();
+            ReverseName = new string(FullName.Reverse().ToArray());
             Age = ExtractAgeFromBirth(BirthDate);
             Seniority = ExtractSeniorityFromHire(HireDate);
             _employeesCounter++;
@@ -60,7 +60,7 @@
                    $">First name: {FirstName}\n" +
                    $">Last name: {LastName}\n" +
                    $">Full name: {FullName}\n" +
-                   $">Reverse name: {ReverseName}ºn" +
+                   $">Reverse name: {ReverseName}\n" +
                    $">Age: {Age}\n" +
                    $">Seniority: {Seniority}\n" +
                    $">Annual salary: {AnnualSalary}\n";
