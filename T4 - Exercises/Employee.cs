@@ -56,7 +56,8 @@
         }
         public override string ToString()
         {
-            return $">Code: {Code}\n" +
+            return "-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E / S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\n" +
+                   $">Code: {Code}\n" +
                    $">First name: {FirstName}\n" +
                    $">Last name: {LastName}\n" +
                    $">Full name: {FullName}\n" +

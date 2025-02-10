@@ -17,15 +17,7 @@
 
         public override string ToString()
         {
-            return $">Code: {Code}\n" +
-                   $">First name: {FirstName}\n" +
-                   $">Last name: {LastName}\n" +
-                   $">Full name: {FullName}\n" +
-                   $">Reverse name: {ReverseName}\n" +
-                   $">Age: {Age}\n" +
-                   $">Seniority: {Seniority}\n" +
-                   $">Annual salary: {AnnualSalary}\n" +
-                   $">Commission: {Commission}\n";
+            return base.ToString() + $">Comission: {Commission}";
         }
     }
 }
