@@ -11,7 +11,7 @@ namespace T4EX
         {
             print(msg);
         }
-        public static void Main()
+        public static void Done()
         {
             //Tipus de lamabda, nom, arguments i operació
             Func<int, int, int> Suma = (a, b) => a + b;

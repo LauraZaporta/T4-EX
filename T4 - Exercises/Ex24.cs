@@ -7,15 +7,15 @@ namespace T4EX
 {
     public class EX24
     {
-        public static void ExecutarAmbAAnonimusMethod(Action<string> print, string msg)
+        public delegate void Notificacio(string missatge);
+        public static void ExecutarAmbMetodeAnonim(Notificacio notificacio) { notificacio("HOLA"); }
+        public static void Main()
         {
-            print(msg);
-        }
-        public static void PrintMessage(string msg) { Console.WriteLine(msg); }
-        public static void Done()
-        {
-            ExecutarAmbAAnonimusMethod(PrintMessage, "AAAAAAAAAAA");
-            ExecutarAmbAAnonimusMethod(PrintMessage, "Pernil");
+            ExecutarAmbMetodeAnonim(delegate (string missatge)
+            {
+                Console.WriteLine($"[Missatge]: {missatge}");
+
+            });
         }
     }
 }
