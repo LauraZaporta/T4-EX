@@ -1,26 +1,21 @@
-﻿namespace T4EX
+﻿using System.Text;
+
+namespace T4EX
 {
     public class Employee
     {
-        protected static int _employeesGeneralCounter = 0;
         private static int _employeesCounter = 0;
-        public static int Counter { get { return _employeesGeneralCounter; } }
         public static int CounterEmployees { get { return _employeesCounter; } }
-        public int Age { get; set; }
         public string Code { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FullName { get; set; }
-        public string ReverseName {  get; set; }
-        public int Seniority { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HireDate { get; set; }
         public float MonthSalary { get; set; } = 1800;
-        public float AnnualSalary { get; set; }
         public int Payments { get; set; } = 14;
 
-        public Employee(string code, string firstName, string lastName, string birthDate, 
-                        string hireDate, float monthSalary, int payments) 
+        public Employee(string code, string firstName, string lastName, string birthDate,
+                        string hireDate, float monthSalary, int payments)
         {
             Code = code;
             FirstName = firstName;
@@ -28,43 +23,43 @@
             BirthDate = DateTime.ParseExact(hireDate, "dd/MM/yyyy", null);
             HireDate = DateTime.ParseExact(birthDate, "dd/MM/yyyy", null);
             MonthSalary = monthSalary;
-            AnnualSalary = MonthSalary * 12;
             Payments = payments;
-            FullName = firstName + " " + lastName;
-            ReverseName = new string(FullName.Reverse().ToArray());
-            Age = ExtractAgeFromBirth(BirthDate);
-            Seniority = ExtractSeniorityFromHire(HireDate);
             _employeesCounter++;
-            _employeesGeneralCounter++;
         }
         public Employee(DateTime birthDate)
         {
             BirthDate = birthDate;
-            Age = ExtractAgeFromBirth(BirthDate);
             _employeesCounter++;
         }
 
-        public int ExtractAgeFromBirth(DateTime birthDate)
+        public string doReverseName() { return new string(doFullName().Reverse().ToArray()); }
+        public string doFullName() { return $"{FirstName} {LastName}"; }
+        public double doAnnualSalary() { return MonthSalary * 12; }
+        public int ExtractSeniorityFromHire()
         {
-            TimeSpan ageDifference = DateTime.Today.Subtract(birthDate.Date);
-            return (int)(ageDifference.TotalDays / 365.25);
+            TimeSpan timeDifference = DateTime.Today.Subtract(HireDate.Date);
+            return (int)(timeDifference.TotalDays); //Retorna els dies que s'han treballat
         }
-        public int ExtractSeniorityFromHire(DateTime hireDate)
+        public int ExtractAgeFromBirth()
         {
-            TimeSpan timeDifference = DateTime.Today.Subtract(hireDate.Date);
-             return (int)(timeDifference.TotalDays); //Retorna els dies que s'han treballat
+            TimeSpan ageDifference = DateTime.Today.Subtract(BirthDate.Date);
+            return (int)(ageDifference.TotalDays / 365.25);
         }
         public override string ToString()
         {
-            return "-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E / S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\n" +
-                   $">Code: {Code}\n" +
-                   $">First name: {FirstName}\n" +
-                   $">Last name: {LastName}\n" +
-                   $">Full name: {FullName}\n" +
-                   $">Reverse name: {ReverseName}\n" +
-                   $">Age: {Age}\n" +
-                   $">Seniority: {Seniority}\n" +
-                   $">Annual salary: {AnnualSalary}\n";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("------------------------------------------------------------------------------------------------" +
+                "-----\r\n                           E M P L O Y E E / S A L E S E M P L O Y E E\r\n-------------------" +
+                "----------------------------------------------------------------------------------\n");
+            sb.Append($">Code: {Code}\n");
+            sb.Append($">First name: {FirstName}\n");
+            sb.Append($">Last name: {LastName}\n");
+            sb.Append($">Full name: {doFullName()}\n");
+            sb.Append($">Reverse name: {doReverseName()}\n");
+            sb.Append($">Age: {ExtractAgeFromBirth()}\n");
+            sb.Append($">Seniority: {ExtractSeniorityFromHire}\n");
+            sb.Append($">Annual salary: {doAnnualSalary}\n");
+            return sb.ToString();
         }
     }
 }

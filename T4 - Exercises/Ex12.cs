@@ -9,7 +9,7 @@ namespace T4EX
             const string AskDate = "Enter a date (dd,mm,yyyy):";
 
             Employee hi = new Employee(Ask.GetDateInput(AskDate));
-            Console.WriteLine($"Age: {hi.Age}");
+            Console.WriteLine($"Age: {hi.ExtractAgeFromBirth()}");
         }
     }
 }

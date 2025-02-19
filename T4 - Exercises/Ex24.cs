@@ -9,7 +9,7 @@ namespace T4EX
     {
         public delegate void Notificacio(string missatge);
         public static void ExecutarAmbMetodeAnonim(Notificacio notificacio) { notificacio("HOLA"); }
-        public static void Main()
+        public static void Done()
         {
             ExecutarAmbMetodeAnonim(delegate (string missatge)
             {

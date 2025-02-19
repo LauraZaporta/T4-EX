@@ -21,8 +21,8 @@ namespace T4EX
             listSales.Add(new SalesEmployee ("B4", "NoPuc", "Més", "02/06/2007", "04/11/2016", 2032, 11, 0.25));
             listSales.Add(new SalesEmployee("B5", "Grawr", "No", "05/09/2006", "12/01/2021", 2032, 11, 0.2));
 
-            List<Employee> SortedListEmp = listEmp.OrderBy(o => o.Seniority).ToList();
-            List<SalesEmployee> SortedListSEmp = listSales.OrderBy(o => o.Seniority).ToList();
+            List<Employee> SortedListEmp = listEmp.OrderBy(o => o.ExtractSeniorityFromHire()).ToList();
+            List<SalesEmployee> SortedListSEmp = listSales.OrderBy(o => o.ExtractSeniorityFromHire()).ToList();
 
             SortedListEmp.ForEach(delegate (Employee emp)
             {

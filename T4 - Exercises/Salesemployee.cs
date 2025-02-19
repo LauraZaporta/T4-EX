@@ -1,4 +1,6 @@
-﻿namespace T4EX
+﻿using System.Text;
+
+namespace T4EX
 {
     public class SalesEmployee : Employee
     {
@@ -11,13 +13,15 @@
                         base (code, firstName, lastName, birthDate, hireDate, monthSalary, payments)
         {
             Commission = commission;
-            _employeesGeneralCounter++;
             _salesEmployeesCounter++;
         }
 
         public override string ToString()
         {
-            return base.ToString() + $">Comission: {Commission}";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.Append($">Comission: {Commission}");
+            return sb.ToString();
         }
     }
 }
