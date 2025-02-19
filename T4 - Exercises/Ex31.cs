@@ -10,7 +10,7 @@ namespace T4EX
 {
     public class EX31
     {
-        public static void Main()
+        public static void Done()
         {
             List<int> nums = new List<int> { 5, 2, -3, -340, 15, 6, -71, 83, 92, 6 };
             //a
