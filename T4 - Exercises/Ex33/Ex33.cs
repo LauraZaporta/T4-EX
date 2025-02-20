@@ -12,7 +12,7 @@ public class Persona //Es crea una classe amb els camps que es volen llegir
 }
 public class Program
 {
-    public static void Main()
+    public static void Done()
     {
         using (var reader = new StreamReader(@"C:\Users\isard\Source\Repos\T4-EX\T4 - Exercises\Ex33\alumnes.csv"))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))

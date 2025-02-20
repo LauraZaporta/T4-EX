@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLlibre xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Llibre>
+    <Title>The Seven Husbands Of Evelyn Hugo</Title>
+    <Author>Taylor Jenkins Reid</Author>
+    <Year>2018</Year>
+  </Llibre>
+  <Llibre>
+    <Title>El Senyor dels Anells</Title>
+    <Author>J.R.R. Tolkien</Author>
+    <Year>1954</Year>
+  </Llibre>
+  <Llibre>
+    <Title>Harry Potter i la Pedra Filosofal</Title>
+    <Author>J.K. Rowling</Author>
+    <Year>1997</Year>
+  </Llibre>
+</ArrayOfLlibre>
